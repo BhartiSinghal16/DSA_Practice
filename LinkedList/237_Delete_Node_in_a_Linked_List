@@ -1,0 +1,8 @@
+class Solution {
+    public void deleteNode(ListNode node) {
+        // Copy value from the next node
+        node.val = node.next.val;
+        // Skip over the next node
+        node.next = node.next.next;
+    }
+}
