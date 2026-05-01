@@ -1,0 +1,14 @@
+class Solution {
+    public int myAtoi(String s) {
+        long num = 0; int i = 0, sign = 1, n = s.length();
+        while (i < n && s.charAt(i) == ' ') i++;
+        if (i < n && (s.charAt(i) == '-' || s.charAt(i) == '+'))
+            sign = (s.charAt(i++) == '-') ? -1 : 1;
+        for (; i < n && Character.isDigit(s.charAt(i)); i++) {
+            num = num * 10 + s.charAt(i) - '0';
+            if (num * sign > Integer.MAX_VALUE) return Integer.MAX_VALUE;
+            if (num * sign < Integer.MIN_VALUE) return Integer.MIN_VALUE;
+        }
+        return (int)(num * sign);
+    }
+}
